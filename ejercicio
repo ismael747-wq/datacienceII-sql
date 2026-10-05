@@ -1,0 +1,22 @@
+-- Seleccion simple --
+SELECT
+producto, precio_unitario FROM ventas_tecnologia
+ORDER BY producto ASC;
+-- Filtrado Critico --
+SELECT 
+id_ventas, pais, precio_unitario FROM ventas_tecnologia
+WHERE precio_unitario > 500;
+-- Busqueda de nulos --
+SELECT categoria FROM ventas_tecnologia
+WHERE categoria is NULL;
+-- Analisis de rendimiento --
+SELECT 
+SUM (cantidad * precio_unitario) AS ingresos_totales
+FROM ventas_tecnologia
+GROUP BY categorias;
+-- Filtro de Elite --
+SELECT 
+SUM (cantidad * precio_unitario) AS ingresos_totales
+FROM ventas_tecnologia
+GROUP BY categorias
+HAVING ingresos_totales > $10000;
